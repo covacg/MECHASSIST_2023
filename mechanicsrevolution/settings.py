@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mq9$$4v(%*xrl&jzet(1u36u!&3u_9ewvnk8&mr44$t$3&(gdp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://mechassist2023.azurewebsites.net/']
 
 
 # Application definition
