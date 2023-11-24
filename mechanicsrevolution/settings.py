@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mq9$$4v(%*xrl&jzet(1u36u!&3u_9ewvnk8&mr44$t$3&(gdp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://mechassist2023.azurewebsites.net/']
 
 
 # Application definition
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -138,7 +139,6 @@ EMAIL_HOST_PASSWORD = 'mywarifxsoihhzed'
 EMAIL_USE_TLS = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
