@@ -556,7 +556,7 @@
                   <h3 class="cita-username">Citas de {{ cita.usuario.extendeddata.user.username }}</h3>
                   <div class="cita-actions">
                     {% if cita.estatus == 'Agendada' %}
-                    <a href="{% url 'cancelar_cita' cita.id %}" class="btn-cancelar" onclick="abrirModal('{{ cita.id|safe }}')">
+                    <a  class="btn-cancelar" onclick="abrirModal('{{ cita.id|safe }}')">
                       <i class='bx bx-trash-alt' style='color: red; font-size: 20px;'></i>
                     </a>
                     {% endif %}
