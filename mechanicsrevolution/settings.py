@@ -139,23 +139,12 @@ EMAIL_USE_TLS = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-=======
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
->>>>>>> b059fb0f074d9f447cb174d63e1191a66e5f73e8
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Definir la ubicación de los archivos estáticos
-<<<<<<< HEAD
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-=======
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
->>>>>>> b059fb0f074d9f447cb174d63e1191a66e5f73e8
