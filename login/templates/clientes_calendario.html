@@ -633,9 +633,14 @@
       var modal = document.getElementById("myModal");
       var citaId = modal.getAttribute("data-cita-id");
   
-      // Aquí puedes realizar la acción de cancelación de la cita con el ID almacenado en citaId
+      // Construir la URL con el ID de la cita
+      var url = "{% url 'cancelar_cita' 0 %}".replace("0", citaId);
   
-      // Cerrar el modal después de la acción
+      // Redirigir a la URL
+      window.location.href = url;
+  
+      // Cerrar el modal después de la redirección
       cerrarModal();
     }
   </script>
+  
