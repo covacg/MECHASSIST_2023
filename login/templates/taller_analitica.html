@@ -564,12 +564,36 @@
     <br>
     <h1 style="color: #0094FF; font-size: 23px;">Analítica</h1>
     <div class="sentimientos-container">
-      <h3>Resumen de Sentimientos</h3>
-      <p><strong>Alegre:</strong> {{happy }}</p>
-      <p><strong>Triste:</strong> {{ mid }}</p>
-      <p><strong>Neutro:</strong> {{ sad }}</p>
-      <p><strong>Total de Comentarios:</strong> {{ conteo_sentimientos.total }}</p>
+        <h3>Resumen de Sentimientos</h3>
+        <p><strong>Alegre:</strong> <span id="happy"></span></p>
+        <p><strong>Triste:</strong> <span id="mid"></span></p>
+        <p><strong>Neutro:</strong> <span id="sad"></span></p>
+        <p><strong>Total de Comentarios:</strong> <span id="total"></span></p>
     </div>
+
+    <script>
+        // Obtén los valores de {{happy}}, {{mid}}, {{sad}}, y {{conteo_sentimientos.total}}
+        var happyValue = 3;  // Reemplaza con el valor real de {{happy}}
+        var midValue = 2;    // Reemplaza con el valor real de {{mid}}
+        var sadValue = 1;    // Reemplaza con el valor real de {{sad}}
+        var totalCount = 6;  // Reemplaza con el valor real de {{conteo_sentimientos.total}}
+
+        // Función para generar emojis
+        function generateEmojis(count, emoji) {
+            var emojis = '';
+            for (var i = 0; i < count; i++) {
+                emojis += emoji;
+            }
+            return emojis;
+        }
+
+        // Asigna los emojis a los elementos correspondientes
+        document.getElementById('happy').innerHTML = generateEmojis(happyValue, '😊');
+        document.getElementById('mid').innerHTML = generateEmojis(midValue, '😢');
+        document.getElementById('sad').innerHTML = generateEmojis(sadValue, '😐');
+        document.getElementById('total').innerHTML = totalCount;
+    </script>
+
  
     <div class="top-comentarios-container">
       <div class="top-comentarios-item">

@@ -46,7 +46,6 @@
       flex-direction: column; /* Stack children vertically */
       justify-content: space-around; /* Distribute space around items */
       align-items: center; /* Center align items horizontally */
-      width: 35%; /* Set the width of the form */
       min-height: 200px; /* Ensure the form has a minimum height */
       margin: 20px auto; /* Center the form with auto margins on the sides */
       background-color: rgba(255, 255, 255, 1); /* Set the background color to white */
@@ -248,9 +247,25 @@
     <br>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <div class="form-group">
+        <label for="id_tipo">Tipo:</label>
+        <select name="tipo" id="id_tipo" required style="width: 110px;">
+          {% for tipo, tipo_display in form.fields.tipo.choices %}
+            <option value="{{ tipo }}" {% if tipo == form.instance.tipo %}selected{% endif %}>{{ tipo_display }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="id_modelo">Modelo:</label>
+        <input type="text" name="modelo" id="id_modelo" value="{{ form.instance.modelo }}" style="width: 110px;" required>
+      </div>
+      <div class="form-group">
+        <label for="id_año">Año:</label>
+        <input type="number" name="ano" id="id_año" value="{{ form.instance.año }}" style="width: 110px;" required>
+    </div>
       <button type="submit" class="btn-primary">Guardar Cambios</button>
     </form>
+    
     <br>
     <a href="{% url 'cvehiculos' %}">Volver a la vista principal</a>
   </div>
