@@ -539,8 +539,8 @@ color: white;
     <div class="list-container">
       <h2>Mis Citas</h2>
       <ul class="citas-list">
-        {% for cita in citas %}
-          <li class="cita-card">
+        {% for cita in citas reversed %}
+        <li class="cita-card">
             <div class="cita-details">
               <div class="cita-header">
                 <!-- <h3 class="cita-username"><p>Citas de </p>{{ cita.usuario.extendeddata.user.username }}</h3> -->
