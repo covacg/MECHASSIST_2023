@@ -24,5 +24,5 @@ urlpatterns = [
     path('',include('login.urls')),
     path('admin/', admin.site.urls),
     path('404/', TemplateView.as_view(template_name='404.html'), name='error_404'),
-    path('login/',include('login.urls'))
+    path('app/',include('login.urls'))
 ]

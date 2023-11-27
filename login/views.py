@@ -9,7 +9,9 @@ from django.db.models import F
 from django.http import JsonResponse
 
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.contrib.auth.models import UserManager
+from django.db.models import Count
+
 
 from pathlib import Path
 from .forms import *
@@ -256,16 +258,16 @@ def agendar_citas(request, taller_name):
 
 #CONTABILIZAR SENTIMIENTOS
 def contar_sentimientos(user):
-    opiniones = Opinion.objects.filter(id_taller=user.taller.id)  # Asume que cada usuario tiene un taller relacionado
+    opiniones = Opinion.objects.filter(id_taller=user.taller.id) 
 
     total_alegre = opiniones.filter(sentimiento='alegre').count()
     total_triste = opiniones.filter(sentimiento='triste').count()
     total_neutro = opiniones.filter(sentimiento='neutro').count()
     total_comentarios = opiniones.count()
+
     print(total_alegre)
     print(total_neutro)
     print(total_triste)
-
 
     return {
         'alegre': total_alegre,
@@ -392,6 +394,7 @@ def talleres_edit(request):
         if user_form.is_valid() and extended_data_form.is_valid():
             user_form.save()
             extended_data_form.save()
+            messages.success(request, 'Perfil actualizado correctamente') 
             return redirect('tperfil')
             
     else:
@@ -486,32 +489,26 @@ def cambiar_estado_cita(request, cita_id, nuevo_estado):
 
 @login_required
 def talleres_analitica(request):
-    # Obtener el id del taller del usuario logueado
-    id_taller_usuario = request.user.id
-    opiniones = Opinion.objects.filter(id_taller=id_taller_usuario)
-    
-    total_alegre = opiniones.filter(sentimiento='alegre').count()
-    total_triste = opiniones.filter(sentimiento='triste').count()
-    total_neutro = opiniones.filter(sentimiento='neutro').count()
-    total_comentarios = opiniones.count()
+    # Obtener el taller del usuario logueado
+    taller_autenticado = request.user
+
+    # Obtener las opiniones asociadas al taller autenticado
+    opiniones = Opinion.objects.filter(id_taller=taller_autenticado)
+
+    # Calcular el conteo de sentimientos
+    conteo_sentimientos = opiniones.values('sentimiento').annotate(total=Count('sentimiento'))
 
     # Obtener top 3 comentarios por sentimiento
-    top_3_alegre = opiniones.filter(sentimiento='alegre').order_by('-fecha_creacion')[:3]
-    top_3_triste = opiniones.filter(sentimiento='triste').order_by('-fecha_creacion')[:3]
-    top_3_neutro = opiniones.filter(sentimiento='neutro').order_by('-fecha_creacion')[:3]
+    top_3_comentarios = {
+        'alegre': opiniones.filter(sentimiento='alegre').order_by('-fecha_creacion')[:3],
+        'triste': opiniones.filter(sentimiento='triste').order_by('-fecha_creacion')[:3],
+        'neutro': opiniones.filter(sentimiento='neutro').order_by('-fecha_creacion')[:3],
+    }
 
     context = {
-        'happy': total_alegre,
-        'mid': total_triste,
-        'sad': total_neutro,
-        'conteo_sentimientos': {
-            'total': total_comentarios
-        },
-        'top_3_comentarios': {
-            'alegre': top_3_alegre,
-            'triste': top_3_triste,
-            'neutro': top_3_neutro
-        }
+        'conteo_sentimientos': conteo_sentimientos,
+        'total_comentarios': opiniones.count(),
+        'top_3_comentarios': top_3_comentarios,
     }
 
     return render(request, 'taller_analitica.html', context)
@@ -532,10 +529,14 @@ def editar_servicio(request, servicio_id):
 def eliminar_servicio(request, servicio_id):
     servicio = get_object_or_404(Service, id=servicio_id)
     servicio.delete()
+    messages.success(request, 'Servicio eliminado correctamente') 
     return redirect('tservicios')
 
 
 
+
+def error_404(request, exception):
+    return render(request, '404.html', status=404)
 
 
 
