@@ -172,7 +172,7 @@ def clientes_vehiculos(request):
 
     vehiculos = Vehiculos.objects.filter(usuario=request.user)
 
-    # Vehiuclo borrado
+    # Verifica si hay un parámetro "vehicle_deleted" en la URL
     if request.GET.get("vehicle_deleted") == "true":
         messages.success(request, "Vehículo eliminado.")
 
@@ -256,7 +256,7 @@ def agendar_citas(request, taller_name):
 
 #CONTABILIZAR SENTIMIENTOS
 def contar_sentimientos(user):
-    opiniones = Opinion.objects.filter(id_taller=user.taller.id)  
+    opiniones = Opinion.objects.filter(id_taller=user.taller.id)  # Asume que cada usuario tiene un taller relacionado
 
     total_alegre = opiniones.filter(sentimiento='alegre').count()
     total_triste = opiniones.filter(sentimiento='triste').count()
@@ -392,7 +392,6 @@ def talleres_edit(request):
         if user_form.is_valid() and extended_data_form.is_valid():
             user_form.save()
             extended_data_form.save()
-            messages.success(request, 'Perfil actualizado con éxito.')
             return redirect('tperfil')
             
     else:
@@ -533,9 +532,6 @@ def editar_servicio(request, servicio_id):
 def eliminar_servicio(request, servicio_id):
     servicio = get_object_or_404(Service, id=servicio_id)
     servicio.delete()
-
-    messages.success(request, 'Servicio eliminado exitosamente.')
-
     return redirect('tservicios')
 
 
