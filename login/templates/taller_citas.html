@@ -352,28 +352,27 @@
 }
 
 .open-button {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712126.png'); /* Path to your bot image */
-      background-color: #18191a;
-      background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
-      background-position: center;
-      background-repeat: no-repeat; /* Prevent the image from repeating */
-      color: transparent; /* Hide the text */
-      border: none;
-      cursor: pointer;
-      /* opacity: 0.8; */
-      position: fixed;
-      bottom: 23px;
-      right: 30px;
-      width: 80px; /* Adjust to the size you want */
-      height: 80px; /* Adjust to the size you want */
-      overflow: hidden; /* Hide any overflow */
-      z-index: 1; /* This should be higher than the .open-button's z-index */
-    }
+  background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712126.png'); /* Path to your bot image */
+  background-color: #18191a;
+  background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
+  background-position: center;
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  color: transparent; /* Hide the text */
+  border: none;
+  cursor: pointer;
+  /* opacity: 0.8; */
+  position: fixed;
+  bottom: 23px;
+  right: 30px;
+  width: 80px; /* Adjust to the size you want */
+  height: 80px; /* Adjust to the size you want */
+  overflow: hidden; /* Hide any overflow */
+  z-index: 1; /* This should be higher than the .open-button's z-index */
+}
 
     .open-button.chat-open {
       display: none;
     }
-
 
     .chat-popup {
       display: none; /* Initially hidden */
@@ -401,32 +400,27 @@
       border-top-color: #FFFFFF;
     }
 
-    .chat-content { /* This class name is an example, use the actual class or ID from your HTML */
-      background-color: #00FF00; /* Replace with your preferred shade of green */
-      /* Other styles... */
-    }
-
 .chatbot-window {
-     min-height: 410px;  
-   }
+  min-height: 410px;  
+}
 
 .btn_cancel {
   background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712010.png'); /* Path to your bot image */
-      background-color:  #18191a;
-      background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
-      background-position: center;
-      background-repeat: no-repeat; /* Prevent the image from repeating */
-      color: transparent; /* Hide the text */
-      border: none;
-      cursor: pointer;
-      /* opacity: 0.8; */
-      position: fixed;
-      bottom: 23px;
-      right: 30px;
-      width: 80px; /* Adjust to the size you want */
-      height: 80px; /* Adjust to the size you want */
-      overflow: hidden; /* Hide any overflow */
-    }
+  background-color:  #18191a;
+  background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
+  background-position: center;
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  color: transparent; /* Hide the text */
+  border: none;
+  cursor: pointer;
+  /* opacity: 0.8; */
+  position: fixed;
+  bottom: 23px;
+  right: 30px;
+  width: 80px; /* Adjust to the size you want */
+  height: 80px; /* Adjust to the size you want */
+  overflow: hidden; /* Hide any overflow */
+}
 
   </style>
 </head>
@@ -585,45 +579,43 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
   function cambiarEstadoCita(button) {
     const citaId = button.getAttribute('data-cita-id');
     const estadoActual = button.getAttribute('data-estado-actual');
     let nuevoEstado = button.getAttribute('data-nuevo-estado');
   
-    console.log("estadoActual:", estadoActual);
-    if (estadoActual === 'Agendada') {
-      nuevoEstado = 'En espera de entrega de vehículo';
-    } else if (estadoActual === 'En espera de entrega de vehículo') {
-      nuevoEstado = 'En progreso';
-    } else if (estadoActual === 'En progreso') {
-      nuevoEstado = 'En espera de recogida de vehículo';
-    } else if (estadoActual === 'En espera de recogida de vehículo') {
-      nuevoEstado = 'Terminada';
-    }
+    // Mostrar un cuadro de diálogo de confirmación
+    const confirmacion = confirm('¿Estás seguro de cambiar el estado de la cita?');
   
-    $.post(
-      "{% url 'cambiar_estado_cita' 0 'placeholder' %}".replace('0', citaId).replace('placeholder', nuevoEstado),
-      function(data) {
-        if (data.success) {
-          // Actualizar el estado de la cita en la interfaz.
-          $('#estado-' + citaId).text(data.nuevo_estado);
-          // Recargar la página.
-          location.reload();
-        } else {
-          alert('Error al actualizar el estado de la cita');
-        }
+    // Verificar la respuesta del usuario
+    if (confirmacion) {
+      // Realizar la acción solo si el usuario ha confirmado
+      console.log("estadoActual:", estadoActual);
+      if (estadoActual === 'Agendada') {
+        nuevoEstado = 'En espera de entrega de vehículo';
+      } else if (estadoActual === 'En espera de entrega de vehículo') {
+        nuevoEstado = 'En progreso';
+      } else if (estadoActual === 'En progreso') {
+        nuevoEstado = 'En espera de recogida de vehículo';
+      } else if (estadoActual === 'En espera de recogida de vehículo') {
+        nuevoEstado = 'Terminada';
       }
-    );
+  
+      $.post(
+        "{% url 'cambiar_estado_cita' 0 'placeholder' %}".replace('0', citaId).replace('placeholder', nuevoEstado),
+        function(data) {
+          if (data.success) {
+            // Actualizar el estado de la cita en la interfaz.
+            $('#estado-' + citaId).text(data.nuevo_estado);
+            // Recargar la página.
+            location.reload();
+          } else {
+            alert('Error al actualizar el estado de la cita');
+          }
+        }
+      );
+    }
   }
-  </script>
-
-    
-
-
-  
-  
-  
+</script>
   
