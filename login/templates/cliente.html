@@ -4,6 +4,7 @@
 <head>
 <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <title>Mechassit</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
@@ -74,9 +75,7 @@
             color: #0094FF;
         }
 
-
     </style>
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 
 
@@ -86,7 +85,6 @@
         <a href="{% url 'login' %}" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: white;">
             <i class='bx bx-arrow-back' style='font-size: 24px;'></i>
         </a>
-    
         <form action="" method="post">
             {% csrf_token %}
             <table>
@@ -106,9 +104,6 @@
                     <td><label for="{{ user_form.password2.id_for_label }}" title="Repita la misma contraseña">Confirmar Contraseña:</label></td>
                     <td><input type="password" id="{{ user_form.password2.id_for_label }}" name="{{ user_form.password2.name }}" class="form-field" required autocomplete="new-password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$" title="La contraseña debe contener al menos 8 caracteres, incluyendo al menos una letra, un número y un carácter especial"></td>
                 </tr>
-                
-                         
-                <!-- Campos de UserProfileForm -->
                 <tr>
                     <td><label for="{{ user_profile_form.telefono.id_for_label }}" >Teléfono: </label></td>
                     <td><input type="tel" id="{{ user_profile_form.telefono.id_for_label }}" name="{{ user_profile_form.telefono.name }}" class="form-field" pattern="[0-9]{10}" required autocomplete="off" title="Ingrese un número de teléfono de 10 dígitos (solo números)"></td>
@@ -133,13 +128,11 @@
         const passwordInput1 = document.getElementById('{{ user_form.password1.id_for_label }}');
         const passwordInput2 = document.getElementById('{{ user_form.password2.id_for_label }}');
 
-        // Función para verificar el patrón de la contraseña
         function validatePasswordPattern(password) {
             const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
             return passwordPattern.test(password);
         }
 
-        // Agregar evento input para verificar el patrón mientras el usuario escribe
         passwordInput1.addEventListener('input', function () {
             if (!validatePasswordPattern(passwordInput1.value)) {
                 passwordInput1.setCustomValidity('La contraseña no cumple con los requisitos (8 digitos, 1 Mayúscula, 1 número, 1 caracter especial).');
@@ -148,7 +141,6 @@
             }
         });
 
-        // Agregar evento input para verificar el patrón mientras el usuario escribe
         passwordInput2.addEventListener('input', function () {
             if (!validatePasswordPattern(passwordInput2.value)) {
                 passwordInput2.setCustomValidity('La contraseña no cumple con los requisitos (8 digitos, 1 Mayúscula, 1 número, 1 caracter especial).');
@@ -157,7 +149,6 @@
             }
         });
 
-        // Agregar evento submit para comparar contraseñas al enviar el formulario
         form.addEventListener('submit', function (event) {
             const password1 = passwordInput1.value;
             const password2 = passwordInput2.value;

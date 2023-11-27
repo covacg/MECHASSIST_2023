@@ -11,6 +11,7 @@
   <title>Mechassit</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
     * {
       margin: 0;
       padding: 0;
@@ -311,17 +312,17 @@
 
     .list-container {
       background-color: var(--body-color);
-      color: var(--text-color); 
+      color: var(--text-color);
       width: 100%;
       padding: 20px;
     }
 
     .list-container h2 {
-      color: #0094FF; 
+      color: #0094FF;
     }
 
     .list-container h3 {
-      color: #0094FF; 
+      color: #0094FF;
     }
 
     .citas-list {
@@ -330,13 +331,13 @@
     }
 
     .cita-username {
-      white-space: nowrap; /* Prevents the text from wrapping */
-      overflow: hidden; /* Ensures content that overflows the container is hidden */
-      text-overflow: ellipsis; /* Adds an ellipsis to indicate that there is more content */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .cita-card {
-      background-color: #fff;;
+      background-color: #fff;
       color: #000;
       margin: 10px auto;
       padding: 20px;
@@ -361,122 +362,117 @@
     }
 
     .btn-cancelar {
-      position: absolute; /* Posicionamiento absoluto respecto a su contenedor relativo */
-      bottom: 10px; /* Espacio desde el fondo del contenedor. Ajusta al valor que desees. */
-      right: 10px; /* Espacio desde la derecha del contenedor. Ajusta al valor que desees. */
-      /* Resto de tus estilos */
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
     }
 
-  .open-button {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712126.png'); /* Path to your bot image */
-    background-color: #18191a;
-    background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
-    background-position: center;
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    color: transparent; /* Hide the text */
-    border: none;
-    cursor: pointer;
-    /* opacity: 0.8; */
-    position: fixed;
-    bottom: 23px;
-    right: 30px;
-    width: 80px; /* Adjust to the size you want */
-    height: 80px; /* Adjust to the size you want */
-    overflow: hidden; /* Hide any overflow */
-    z-index: 1; /* This should be higher than the .open-button's z-index */
-  }
+    .open-button {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712126.png');
+      background-color: #18191a;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: transparent;
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      bottom: 23px;
+      right: 30px;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+      z-index: 1;
+    }
 
-  .open-button.chat-open {
-    display: none;
-  }
+    .open-button.chat-open {
+      display: none;
+    }
 
+    .chat-popup {
+      display: none;
+      position: fixed;
+      bottom: 0px;
+      right: 30px;
+      width: 340px;
+      height: 520px;
+      border: none;
+      z-index: 15;
+      border-radius: 20px;
+      box-shadow: none;
+    }
 
-  .chat-popup {
-    display: none; /* Initially hidden */
-    position: fixed;
-    bottom: 0px; /* Position it above the bot image; adjust as needed */
-    right: 30px; /* Align with the right side of the bot image */
-    width: 340px; /* Adjust as needed */
-    height: 520px;
-    border: none;
-    z-index: 15; /* Above the bot image */
-    border-radius: 20px; /* Rounded corners for the chat bubble */
-    box-shadow: none; /* Optional: adds a shadow for depth */
-  }
+    .chat-popup::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: 50px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid white;
+      border-top-color: #FFFFFF;
+    }
 
-  .chat-popup::before {
-    content: '';
-    position: absolute;
-    bottom: -20px; /* Position the triangle just below the chat window */
-    right: 50px; /* Position the triangle to point towards the bot image */
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid white; /* Color of the thought bubble */
-    border-top-color: #FFFFFF;
-  }
-  .chatbot-window {
-    min-height: 410px;  
-  }
+    .chatbot-window {
+      min-height: 410px;
+    }
 
-  .btn_cancel {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712010.png'); /* Path to your bot image */
-    background-color:  #18191a;
-    background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
-    background-position: center;
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    color: transparent; /* Hide the text */
-    border: none;
-    cursor: pointer;
-    /* opacity: 0.8; */
-    position: fixed;
-    bottom: 23px;
-    right: 30px;
-    width: 80px; /* Adjust to the size you want */
-    height: 80px; /* Adjust to the size you want */
-    overflow: hidden; /* Hide any overflow */
-  }
+    .btn_cancel {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712010.png');
+      background-color: #18191a;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: transparent;
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      bottom: 23px;
+      right: 30px;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+    }
 
-.modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fefefe;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fefefe;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-/* Estilo para el contenido del modal */
-.modal-content {
-  text-align: center;
-}
+    .modal-content {
+      text-align: center;
+    }
 
-/* Estilo para los botones del modal */
-#confirmarBtn,
-#cerrarBtn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    #confirmarBtn,
+    #cerrarBtn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-#confirmarBtn {
-background-color: #4caf50;
-color: white;
-}
+    #confirmarBtn {
+      background-color: #4caf50;
+      color: white;
+    }
 
-#cerrarBtn {
-background-color: #f44336;
-color: white;
-}
-    
+    #cerrarBtn {
+      background-color: #f44336;
+      color: white;
+    }
   </style>
 </head>
+
 <body>
   <nav class="sidebar">
     <header>
@@ -494,8 +490,8 @@ color: white;
 
     <div class="chat-popup" id="chatbotpanel">
         <form class="form-chatbot" > 
-            <iframe class = "chatbot-window" src='https://webchat.botframework.com/embed/lenguajedsccacg-bot?s=IswowqYAPpw.CVtprtkHlrC7niqvbef5xdrG0OY6AMMn9P4K7ewJeRk'></iframe>
-            <button type="button" class="btn_cancel" onclick=closeForm()>Cerrar Bot</button>
+          <iframe class = "chatbot-window" src='https://webchat.botframework.com/embed/lenguajedsccacg-bot?s=IswowqYAPpw.CVtprtkHlrC7niqvbef5xdrG0OY6AMMn9P4K7ewJeRk'></iframe>
+          <button type="button" class="btn_cancel" onclick=closeForm()>Cerrar Bot</button>
         </form>
     </div>
     <div class="menu-bar">
@@ -543,7 +539,6 @@ color: white;
         <li class="cita-card">
             <div class="cita-details">
               <div class="cita-header">
-                <!-- <h3 class="cita-username"><p>Citas de </p>{{ cita.usuario.extendeddata.user.username }}</h3> -->
                 <h3 class="cita-username">Citas de {{ cita.usuario.extendeddata.user.username }}</h3>
                 <div class="cita-actions">
                   {% if cita.estatus == 'Agendada' %}
