@@ -496,7 +496,7 @@
       <br>
       <h1 style="color: #0094FF; font-size: 23px;">Citas del Taller</h1>
       <ul>
-        {% for cita in citas %}
+        {% for cita in citas reversed %}
         <li class="cita-item">
           <div class="cita-item-detail">
             <div class="cita-header">
@@ -551,7 +551,10 @@
             <p><span class="cita-label"><b>Hora de Entrega:</b></span> <span class="cita-text">{{ cita.hora_entrega }}</span></p>
             <p><span class="cita-label"><b>Vehículo:</b></span> <span class="cita-text">{{ cita.vehiculo.tipo }} {{ cita.vehiculo.modelo }} ({{ cita.vehiculo.año }})</span></p>
             <p><span class="cita-label"><b>Servicio:</b></span> <span class="cita-text">{{ cita.servicio.service_name }}</span></p>
+            <p><span class="cita-label"><b>Cliente correo:</b></span> <span class="cita-text">{{ cita.usuario.extendeddata.user.email }}</span></p>
+            <p><span class="cita-label"><b>Cliente telefono:</b></span> <span class="cita-text">{{ cita.usuario.extendeddata.telefono }}</span></p>
             <p><span class="cita-label"><b>Estatus:</b></span> <span class="cita-text" id="estado-{{ cita.id }}">{{ cita.estatus }}</span></p>
+
           </div>
         </li>        
         {% empty %}
