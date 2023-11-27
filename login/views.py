@@ -394,6 +394,7 @@ def talleres_edit(request):
         if user_form.is_valid() and extended_data_form.is_valid():
             user_form.save()
             extended_data_form.save()
+            messages.success(request, 'Perfil actualizado correctamente') 
             return redirect('tperfil')
             
     else:
@@ -528,6 +529,7 @@ def editar_servicio(request, servicio_id):
 def eliminar_servicio(request, servicio_id):
     servicio = get_object_or_404(Service, id=servicio_id)
     servicio.delete()
+    messages.success(request, 'Servicio eliminado correctamente') 
     return redirect('tservicios')
 
 
