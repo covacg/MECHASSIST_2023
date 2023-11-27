@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="style.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
-
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
   <title>Mechassit</title>
+  
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
     * {
       margin: 0;
       padding: 0;
@@ -222,7 +222,7 @@
     .details,
     .services,
     .opinions {
-      background-color: #fff; 
+      background-color: #fff;
       border: 1px solid #ccc;
       border-radius: 6px;
       padding: 20px;
@@ -255,26 +255,25 @@
       margin-top: 0;
     }
 
-.services {
-  background-color: #fff; /* Cambiado a azul */
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 20px;
-  margin-bottom: 20px;
-  color: #000000; /* Cambiado a blanco */
-  width: 50%; /* Ocupa la mitad del ancho */
-}
+    .services {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: #000000;
+      width: 50%;
+    }
 
-.details {
-  background-color: #fff; /* Cambiado a azul */
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 20px;
-  margin-bottom: 20px;
-  color: #fff; /* Cambiado a blanco */
-  width: 50%; /* Ocupa la mitad del ancho */
-}
-
+    .details {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: #fff;
+      width: 50%;
+    }
 
     .opinions textarea {
       width: 55%;
@@ -336,133 +335,129 @@
 
     .details-services {
       display: grid;
-      grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas de igual tamaño */
-      gap: 20px; /* Espacio entre las dos columnas */
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-  .details {
-    background-color: #ffffff; /* Cambiado a azul */
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 20px;
-    color: #000000; /* Cambiado a blanco */
-    width: 100%; /* Ocupa el 100% del ancho de su columna */
-  }
+    .details {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      color: #000000;
+      width: 100%;
+    }
 
-  .services {
-    background-color: #ffffff; /* Color de fondo blanco */
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 20px;
-    color: #000000; /* Color de texto negro */
-    width: 100%; /* Ocupa el 100% del ancho de su contenedor */
-  }
+    .services {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      color: #000000;
+      width: 100%;
+    }
 
-  .btn-primary {
-    display: inline-block; /* Asegura que se comporte como un botón */
-    padding: 10px 20px; /* Añade espacio alrededor del texto */
-    margin-top: 10px; /* Añade espacio por encima del botón */
-    margin-right: 20px; /* Añade espacio a la derecha del botón para evitar que esté pegado al borde */
-    border: none; /* Quita cualquier borde predeterminado */
-    border-radius: 5px; /* Redondea las esquinas */
-    background-color: rgba(0, 0, 0, 0.583); /* Color de fondo semi-transparente negro */
-    color: white; /* Color del texto blanco */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    cursor: pointer; /* Cambia el cursor a la forma de una mano */
-    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo */
-  }
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      margin-right: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.583);
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-  .btn-primary:hover,
-  .btn-primary:active {
-    background-color: #007BFF; /* Cambia el color de fondo al pasar el cursor o al hacer clic */
-  }
+    .btn-primary:hover,
+    .btn-primary:active {
+      background-color: #007BFF;
+    }
 
-  .form-group {
-    display: block; /* or 'flex', with 'flex-direction: column;' if you need more control */
-    margin-bottom: 15px; /* Adjust as needed for spacing */
-  }
+    .form-group {
+      display: block;
+      margin-bottom: 15px;
+    }
 
-  .form-group label {
-    display: block; /* Makes the label take up the full width */
-    margin-bottom: 5px; /* Adds some space between the label and the textarea */
-  }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
 
-  .open-button {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712126.png'); /* Path to your bot image */
+    .open-button {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712126.png');
       background-color: #fff;
-      background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
+      background-size: contain;
       background-position: center;
-      background-repeat: no-repeat; /* Prevent the image from repeating */
-      color: transparent; /* Hide the text */
+      background-repeat: no-repeat;
+      color: transparent;
       border: none;
       cursor: pointer;
-      /* opacity: 0.8; */
       position: fixed;
       bottom: 23px;
       right: 30px;
-      width: 80px; /* Adjust to the size you want */
-      height: 80px; /* Adjust to the size you want */
-      overflow: hidden; /* Hide any overflow */
-      z-index: 1; /* This should be higher than the .open-button's z-index */
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+      z-index: 1;
     }
 
     .open-button.chat-open {
       display: none;
     }
 
-
     .chat-popup {
-      display: none; /* Initially hidden */
+      display: none;
       position: fixed;
-      bottom: 0px; /* Position it above the bot image; adjust as needed */
-      right: 30px; /* Align with the right side of the bot image */
-      width: 340px; /* Adjust as needed */
+      bottom: 0px;
+      right: 30px;
+      width: 340px;
       height: 520px;
       border: none;
-      z-index: 15; /* Above the bot image */
-      border-radius: 20px; /* Rounded corners for the chat bubble */
-      box-shadow: none; /* Optional: adds a shadow for depth */
+      z-index: 15;
+      border-radius: 20px;
+      box-shadow: none;
     }
 
     .chat-popup::before {
       content: '';
       position: absolute;
-      bottom: -20px; /* Position the triangle just below the chat window */
-      right: 50px; /* Position the triangle to point towards the bot image */
+      bottom: -20px;
+      right: 50px;
       width: 0;
       height: 0;
       border-left: 20px solid transparent;
       border-right: 20px solid transparent;
-      border-top: 20px solid white; /* Color of the thought bubble */
+      border-top: 20px solid white;
       border-top-color: #FFFFFF;
     }
 
-    .chat-content { /* This class name is an example, use the actual class or ID from your HTML */
-      background-color: #00FF00; /* Replace with your preferred shade of green */
-      /* Other styles... */
+    .chat-content {
+      background-color: #00FF00;
     }
 
-  .chatbot-window {
-      min-height: 410px;  
+    .chatbot-window {
+      min-height: 410px;
     }
 
-  .btn_cancel {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712010.png'); /* Path to your bot image */
-        background-color:  #fff;
-        background-size: contain; /* Or 'cover' if you want the image to fully cover the button */
-        background-position: center;
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        color: transparent; /* Hide the text */
-        border: none;
-        cursor: pointer;
-        /* opacity: 0.8; */
-        position: fixed;
-        bottom: 23px;
-        right: 30px;
-        width: 80px; /* Adjust to the size you want */
-        height: 80px; /* Adjust to the size you want */
-        overflow: hidden; /* Hide any overflow */
-      }
+    .btn_cancel {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712010.png');
+      background-color:  #fff;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: transparent;
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      bottom: 23px;
+      right: 30px;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+    }
 
   </style>
 </head>
@@ -548,17 +543,19 @@
     
       <div class="services" style="background-color: #fff">
         <h2 class="section-title"><i class="bx bx-cog icon-box"></i>Servicios</h2>
-        <ul class="servicios-list">
-          {% for service in servicios %}
-            <li>
-              <b>{{ service.service_name }}</b> - <b>Tiempo:</b> {{ service.get_service_time_display }} - <b>Precio: </b>${{ service.service_price }}
-            </li>
-          {% endfor %}
-        </ul>
-        <div style="text-align: right;">
-          <a href="{% url 'reservar_cita' taller_name=taller_name %}" class="btn btn-primary">Reservar</a>
+        <div class="servicios-list">
+            {% for service in servicios %}
+                <div class="service-details">
+                  <h2 style="color: black;"><b>{{ service.service_name }}</b></h2>
+                  <p><b>Tiempo:</b> {{ service.get_service_time_display }}</p>
+                  <p><b>Precio:</b> ${{ service.service_price }}</p>
+                </div>
+            {% endfor %}
         </div>
-      </div>
+        <div style="text-align: right;">
+            <a href="{% url 'reservar_cita' taller_name=taller_name %}" class="btn btn-primary">Reservar</a>
+        </div>
+    </div>
     </div>
 
     <div class="opinions">
@@ -628,9 +625,7 @@
 
 <script src="https://nominatim.openstreetmap.org/search?format=json"></script>
 
-  <!-- Añade esto después de cargar Nominatim y Leaflet -->
   <script>
-    // Usa la dirección del taller para obtener las coordenadas con Nominatim
     var address = "{{ taller.direccion }}, {{ taller.cp }}, {{ taller.ciudad }}";
     var nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
       address
