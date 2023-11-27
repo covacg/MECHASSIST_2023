@@ -200,8 +200,8 @@
 
     <div class="chat-popup" id="chatbotpanel">
         <form class="form-chatbot" > 
-          <iframe class = "chatbot-window" src='https://webchat.botframework.com/embed/lenguajeUMFA-bot?s=Z9OF1TgOblM.9jnrAMNseuDItmzlUPdXwGbgf8N4fXed6kQJCgLfVmo'></iframe>
-          <button type="button" class="btn_cancel" onclick=closeForm()>Cerrar Bot</button>
+            <iframe class = "chatbot-window" src='https://webchat.botframework.com/embed/lenguajedsccacg-bot?s=IswowqYAPpw.CVtprtkHlrC7niqvbef5xdrG0OY6AMMn9P4K7ewJeRk'></iframe>
+            <button type="button" class="btn_cancel" onclick=closeForm()>Cerrar Bot</button>
         </form>
     </div>
 <body>
@@ -220,12 +220,12 @@
       </div>
       <div class="form-group">
         <label for="id_modelo">Modelo:</label>
-        <input type="text" name="modelo" id="id_modelo" value="{{ form.instance.modelo }}">
-      </div>
+        <input type="text" name="modelo" id="id_modelo" value="{{ form.instance.modelo }}" required>
+      </div>    
       <div class="form-group">
         <label for="id_año">Año:</label>
-        <input type="number" name="ano" id="id_año" value="{{ form.instance.año }}">
-    </div>
+        <input type="number" name="ano" id="id_año" value="{{ form.instance.año }}" required>
+      </div>
       <button type="submit" class="btn-primary">Guardar cambios</button>      
     </form>
     <a href="{% url 'cvehiculos' %}">Regresar</a>
