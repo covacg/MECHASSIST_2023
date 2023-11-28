@@ -192,9 +192,9 @@
         <form method="post">
             {% csrf_token %}
             <label for="nuevo_texto"><b>Escriba su opinión:</b></label>
-            <textarea id="nuevo_texto" name="nuevo_texto" rows="4" cols="50" style="border: 1px solid white;">{{ opinion.opinion }}</textarea>
+            <textarea id="nuevo_texto" name="nuevo_texto" rows="4" cols="50" style="border: 1px solid white;" required>{{ opinion.opinion }}</textarea>
             <input type="submit" value="Guardar opinión">
-        </form>
+        </form>        
         <br>
         <a href="#" onclick="history.back(); return false;">Regresar</a>
     </div>
