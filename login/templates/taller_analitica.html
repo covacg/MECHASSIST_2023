@@ -558,12 +558,12 @@
     <br>
     <h1 style="color: #0094FF; font-size: 23px;">Analítica</h1>
     <div class="sentimientos-container">
-        <h3>Resumen de Sentimientos</h3>
-        <p><strong>Alegre:</strong> <span id="happy"></span></p>
-        <p><strong>Triste:</strong> <span id="mid"></span></p>
-        <p><strong>Neutro:</strong> <span id="sad"></span></p>
-        <p><strong>Total de Comentarios:</strong> <span id="total"></span></p>
-    </div>
+      <h3>Resumen de Sentimientos</h3>
+      <p><strong>Alegre:</strong> {% for _ in top_3_comentarios.alegre %}😊{% endfor %}</p>
+      <p><strong>Triste:</strong> {% for _ in top_3_comentarios.triste %}😢{% endfor %}</p>
+      <p><strong>Neutro:</strong> {% for _ in top_3_comentarios.neutro %}😐{% endfor %}</p>
+      <p><strong>Total de Comentarios:</strong> {{ total_comentarios }}</p>
+  </div>
 
     <script>
         // Obtén los valores de {{happy}}, {{mid}}, {{sad}}, y {{conteo_sentimientos.total}}
